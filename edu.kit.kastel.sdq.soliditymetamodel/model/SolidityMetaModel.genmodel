@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.kastel.sdq.soliditymetamodel/src-gen"
+    editDirectory="/edu.kit.kastel.sdq.soliditymetamodel.edit/src-gen" editorDirectory="/edu.kit.kastel.sdq.soliditymetamodel.editor/src-gen"
+    modelPluginID="edu.kit.kastel.sdq.soliditymetamodel" modelName="SolidityMetaModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory=""
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" copyrightFields="false"
+    editPluginID="edu.kit.kastel.sdq.soliditymetamodel.edit" editorPluginID="edu.kit.kastel.sdq.soliditymetamodel.editor"
+    usedGenPackages="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>SolidityMetaModel.ecore</foreignModel>
+  <genPackages prefix="SolidityMetaModel" basePackage="edu.kit.kastel.sdq" disposableProviderFactory="true"
+      ecorePackage="SolidityMetaModel.ecore#/">
+    <nestedGenPackages prefix="RBAC" basePackage="edu.kit.kastel.sdq.soliditymetamodel"
+        disposableProviderFactory="true" ecorePackage="SolidityMetaModel.ecore#//rbac">
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//rbac/Role"/>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//rbac/OperationAccessibleByRoles">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/OperationAccessibleByRoles/roles"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/OperationAccessibleByRoles/operation"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//rbac/VariableAccessibleByRoles">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/VariableAccessibleByRoles/roles"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/VariableAccessibleByRoles/variable"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//rbac/AccessControlRepository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControlRepository/accessibleOperationsByRole"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControlRepository/accessibleVariablesByRole"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControlRepository/accessOperationDef"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControlRepository/roles"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//rbac/AccessControllingOperation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControllingOperation/operation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControllingOperation/identity"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//rbac/AccessControllingOperation/roleDetermining"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="SolidityContracts" basePackage="edu.kit.kastel.sdq.soliditymetamodel"
+        disposableProviderFactory="true" ecorePackage="SolidityMetaModel.ecore#//soliditycontracts">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/VariableVisibility">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/VariableVisibility/public"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/VariableVisibility/internal"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/VariableVisibility/private"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/DataLocation">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/DataLocation/storage"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/DataLocation/memory"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/DataLocation/calldata"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/FunctionMutability">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/FunctionMutability/default"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/FunctionMutability/pure"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/FunctionMutability/view"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/FunctionMutability/payable"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/FunctionTypeVisibility">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/FunctionTypeVisibility/internal"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/FunctionTypeVisibility/external"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bool"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/address"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/address_payable"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes1"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes2"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes3"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes4"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes5"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes6"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes7"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes8"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes9"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes10"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes11"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes12"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes13"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes14"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes15"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes16"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes17"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes18"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes19"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes20"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes21"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes22"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes23"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes24"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes25"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes26"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes27"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes28"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes29"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes30"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes31"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/bytes32"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int8"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int16"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int24"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int32"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int40"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int48"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int56"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int64"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int72"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int80"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int88"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int96"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int104"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int112"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int120"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int128"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int136"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int144"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int152"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int160"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int168"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int176"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int184"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int192"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int200"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int208"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int216"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int224"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int232"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int240"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int248"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/int256"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint8"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint16"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint24"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint32"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint40"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint48"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint56"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint64"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint72"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint80"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint88"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint96"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint104"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint112"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint120"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint128"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint136"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint144"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint152"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint160"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint168"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint176"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint184"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint192"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint200"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint208"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint216"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint224"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint232"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint240"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint248"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveTypeEnum/uint256"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/VariableMutability">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/VariableMutability/default"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/VariableMutability/constant"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/VariableMutability/immutable"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/DefaultArrayEnum">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/DefaultArrayEnum/bytes"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/DefaultArrayEnum/string"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/LocalFunctionVisibility">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/LocalFunctionVisibility/internal"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/LocalFunctionVisibility/private"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SolidityMetaModel.ecore#//soliditycontracts/GlobalFunctionVisibility">
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/GlobalFunctionVisibility/public"/>
+        <genEnumLiterals ecoreEnumLiteral="SolidityMetaModel.ecore#//soliditycontracts/GlobalFunctionVisibility/external"/>
+      </genEnums>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/EventParameter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/EventParameter/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/EventParameter/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/EventParameter/indexed"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/CustomArray">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/CustomArray/size"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/CustomArray/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/CustomArray/dataLocation"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/ModifierParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/ModifierParameter/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/ModifierParameter/type"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Type"/>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/StateVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/StateVariable/mutability"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/StateVariable/visibility"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/StateVariable/type"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Function">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Function/returnVariables"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/Function/mutability"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Function/modifiers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/Function/virtual"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Function/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Enum">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Enum/members"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Event">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Event/parameters"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/Event/anonymous"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/EnumMember">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/EnumMember/value"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Mapping">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Mapping/keyType"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Mapping/valueType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/Mapping/dataLocation"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Modifier">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Modifier/parameters"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/Modifier/virtual"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Modifier/override"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/MappingKeyType"/>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/StructMember">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/StructMember/type"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Repository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Repository/contracts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Repository/globalFunctions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Repository/globalTypes"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Constructor">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Constructor/parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/PrimitiveType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/PrimitiveType/type"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/ReturnVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/ReturnVariable/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/ReturnVariable/type"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Struct">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Struct/members"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/Struct/dataLocation"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/Contract">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/variables"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/providedFunctions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/constructor"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/events"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/parents"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/modifiers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/localTypes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/requiredFunctions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/localFunctions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/Contract/overrideFunctions"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/FunctionParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/FunctionParameter/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/FunctionParameter/type"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/ConstructorParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/ConstructorParameter/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/ConstructorParameter/type"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/DefaultArray">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/DefaultArray/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/DefaultArray/dataLocation"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/FunctionType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/FunctionType/visibility"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/FunctionType/mutability"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/FunctionType/parameterTypes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/FunctionType/returnTypes"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/ContractType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/ContractType/contract"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/OverrideFunction">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/OverrideFunction/base"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/OverrideFunction/overriding"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditycontracts/OverrideFunction/baseContracts"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/LocalFunction">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/LocalFunction/visibility"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditycontracts/GlobalFunction">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SolidityMetaModel.ecore#//soliditycontracts/GlobalFunction/visibility"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="SoliditySystem" basePackage="edu.kit.kastel.sdq.soliditymetamodel"
+        disposableProviderFactory="true" ecorePackage="SolidityMetaModel.ecore#//soliditysystem">
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditysystem/SystemAssembly">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/SystemAssembly/instances"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/SystemAssembly/connectors"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditysystem/Instance">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/Instance/contract"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/Instance/providedInterfaces"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/Instance/requiredInterfaces"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditysystem/Connector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/Connector/providedInterface"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/Connector/requiredInterface"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditysystem/ProvidedInterface">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/ProvidedInterface/function"/>
+      </genClasses>
+      <genClasses ecoreClass="SolidityMetaModel.ecore#//soliditysystem/RequiredInterface">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SolidityMetaModel.ecore#//soliditysystem/RequiredInterface/function"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

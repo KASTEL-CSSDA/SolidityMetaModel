@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SolidityMetaModel -->
+      <package
+            uri="http://sdq.kastel.kit.edu/SolidityMetaModel/rbac"
+            class="edu.kit.kastel.sdq.soliditymetamodel.rbac.RBACPackage"
+            genModel="model/SolidityMetaModel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SolidityMetaModel -->
+      <package
+            uri="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts"
+            class="edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage"
+            genModel="model/SolidityMetaModel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SolidityMetaModel -->
+      <package
+            uri="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditysystem"
+            class="edu.kit.kastel.sdq.soliditymetamodel.soliditysystem.SoliditySystemPackage"
+            genModel="model/SolidityMetaModel.genmodel"/>
+   </extension>
+</plugin>

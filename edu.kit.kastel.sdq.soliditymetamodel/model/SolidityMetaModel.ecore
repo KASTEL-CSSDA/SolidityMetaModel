@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SolidityMetaModel" nsURI="http://sdq.kastel.kit.edu/SolidityMetaModel"
+    nsPrefix="SolidityMetaModel">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+    <details key="identifier" value="http://www.mdsd.tools/modelingfoundations/identifier"/>
+  </eAnnotations>
+  <eSubpackages name="rbac" nsURI="http://sdq.kastel.kit.edu/SolidityMetaModel/rbac"
+      nsPrefix="rbac">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationAccessibleByRoles">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+          eType="#//rbac/Role"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+          eType="#//soliditycontracts/GlobalFunction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableAccessibleByRoles">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+          eType="#//rbac/Role"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
+          eType="#//soliditycontracts/StateVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AccessControlRepository">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="RoleNamesMustBeUnique OperationAccessibleByRolesCanOnlyDefinedOncePerOperation VariableAccessibleByRolesCanOnlyDefinedOncePerVariable"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="RoleNamesMustBeUnique" value="roles -> isUnique(entityName)"/>
+        <details key="OperationAccessibleByRolesCanOnlyDefinedOncePerOperation" value="accessibleOperationsByRole -> isUnique(operation)"/>
+        <details key="VariableAccessibleByRolesCanOnlyDefinedOncePerVariable" value="accessibleVariablesByRole -> isUnique(variable)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessibleOperationsByRole"
+          upperBound="-1" eType="#//rbac/OperationAccessibleByRoles" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessibleVariablesByRole"
+          upperBound="-1" eType="#//rbac/VariableAccessibleByRoles" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessOperationDef" lowerBound="1"
+          eType="#//rbac/AccessControllingOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+          eType="#//rbac/Role" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AccessControllingOperation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="IdentityParameterMustBelongToOperation RoleDeterminingParameterMustBelongToOperation"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="IdentityParameterMustBelongToOperation" value="operation.parameters -> includes(identity)"/>
+        <details key="RoleDeterminingParameterMustBelongToOperation" value="operation.parameters -> includes(roleDetermining)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+          eType="#//soliditycontracts/GlobalFunction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="identity" lowerBound="1"
+          eType="#//soliditycontracts/FunctionParameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roleDetermining" eType="#//soliditycontracts/FunctionParameter"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="soliditycontracts" nsURI="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts"
+      nsPrefix="soliditycontracts">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="EventParameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="indexed" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CustomArray" eSuperTypes="#//soliditycontracts/Type">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataLocation" eType="#//soliditycontracts/DataLocation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ModifierParameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" interface="true"
+        eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StateVariable" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ImmutableOnlyAllowedForValueTypes ConstantOnlyAllowedForValueTypesOrString DataLocationOfDefaultArrayMustBeStorage DataLocationOfCustomArrayMustBeStorage DataLocationOfMappingMustBeStorage DataLocationOfStructMustBeStorage"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ImmutableOnlyAllowedForValueTypes" value="mutability = VariableMutability::immutable implies type.oclIsTypeOf(PrimitiveType) or type.oclIsTypeOf(ContractType) or type.oclIsTypeOf(Enum)"/>
+        <details key="ConstantOnlyAllowedForValueTypesOrString" value="mutability = VariableMutability::immutable implies type.oclIsTypeOf(PrimitiveType) or type.oclIsTypeOf(ContractType) or type.oclIsTypeOf(Enum) or (type.oclIsTypeOf(DefaultArray) and type.oclAsType(DefaultArray).type = DefaultArrayEnum::string)"/>
+        <details key="DataLocationOfDefaultArrayMustBeStorage" value="type.oclIsTypeOf(DefaultArray) implies type.oclAsType(DefaultArray).dataLocation = DataLocation::storage"/>
+        <details key="DataLocationOfCustomArrayMustBeStorage" value="type.oclIsTypeOf(CustomArray) implies type.oclAsType(CustomArray).dataLocation = DataLocation::storage"/>
+        <details key="DataLocationOfMappingMustBeStorage" value="type.oclIsTypeOf(Mapping) implies type.oclAsType(Mapping).dataLocation = DataLocation::storage"/>
+        <details key="DataLocationOfStructMustBeStorage" value="type.oclIsTypeOf(Struct) implies type.oclAsType(Struct).dataLocation = DataLocation::storage"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutability" eType="#//soliditycontracts/VariableMutability"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//soliditycontracts/VariableVisibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Function" abstract="true" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="FunctionParameterNamesAndReturnVariableNamesMustBeUnique"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="FunctionParameterNamesAndReturnVariableNamesMustBeUnique" value="self.parameters -> collect(name) -> union(self.returnVariables -> collect(name)) -> isUnique(x|x)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnVariables" upperBound="-1"
+          eType="#//soliditycontracts/ReturnVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutability" eType="#//soliditycontracts/FunctionMutability"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
+          eType="#//soliditycontracts/Modifier"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="virtual" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//soliditycontracts/FunctionParameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//soliditycontracts/MappingKeyType ../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="EnumMemberNamesMustBeUnique"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="EnumMemberNamesMustBeUnique" value="self.members -> isUnique(value)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" lowerBound="1"
+          upperBound="256" eType="#//soliditycontracts/EnumMember" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="EventParameterNamesMustBeUnique Max3IndexedParametersForEvent"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="EventParameterNamesMustBeUnique" value="self.parameters -> isUnique(name)"/>
+        <details key="Max3IndexedParametersForEvent" value="self.parameters -> collect(indexed) -> count(true) &lt;= 3"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//soliditycontracts/EventParameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="anonymous" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="VariableVisibility">
+      <eLiterals name="public"/>
+      <eLiterals name="internal" value="1"/>
+      <eLiterals name="private" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DataLocation">
+      <eLiterals name="storage"/>
+      <eLiterals name="memory" value="1"/>
+      <eLiterals name="calldata" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FunctionMutability">
+      <eLiterals name="default"/>
+      <eLiterals name="pure" value="1"/>
+      <eLiterals name="view" value="2"/>
+      <eLiterals name="payable" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumMember">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FunctionTypeVisibility">
+      <eLiterals name="internal"/>
+      <eLiterals name="external" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mapping" eSuperTypes="#//soliditycontracts/Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="DataLocationOfMappingMustBeStorage"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="DataLocationOfMappingMustBeStorage" value="dataLocation = DataLocation::storage"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" lowerBound="1"
+          eType="#//soliditycontracts/MappingKeyType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataLocation" eType="#//soliditycontracts/DataLocation"
+          defaultValueLiteral="storage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Modifier" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ModifierParameterNamesMustBeUnique BaseModifierOfOverriddenContractsMustHaveSameNameAndParametersAndMustBeVirtual"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ModifierParameterNamesMustBeUnique" value="self.parameters -> isUnique(name)"/>
+        <details key="BaseModifierOfOverriddenContractsMustHaveSameNameAndParametersAndMustBeVirtual"
+            value="override -> notEmpty() implies override -> forAll(c|c.modifiers ->  exists(m|m.entityName = entityName and m.parameters -> collect(name) = parameters -> collect(name) and m.virtual = true))"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//soliditycontracts/ModifierParameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="virtual" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="override" upperBound="-1"
+          eType="#//soliditycontracts/Contract"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MappingKeyType" abstract="true" interface="true"
+        eSuperTypes="#//soliditycontracts/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StructMember" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Repository">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ContractNameMustBeUnique GlobalFunctionsMustBePublicOrExternal GlobalFunctionCanOnlyUseGlobalTypes LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes EventsCanOnlyUseLocalTypesOfContractOrGlobalTypes ModifiersCanOnlyUseLocalTypesOfContractOrGlobalTypes"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ContractNameMustBeUnique" value="contracts -> isUnique(entityName)"/>
+        <details key="GlobalFunctionsMustBePublicOrExternal" value="globalFunctions -> collect(visibility) -> excludesAll(Set{LocalFunctionVisibility::private, LocalFunctionVisibility::internal})"/>
+        <details key="GlobalFunctionCanOnlyUseGlobalTypes" value="globalTypes -> includesAll(globalFunctions -> collect(returnVariables) -> collect(type) -> union(globalFunctions -> collect(parameters) -> collect(type)))"/>
+        <details key="LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes" value="contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.localFunctions -> collect(parameters) -> collect(type) -> union(c.localFunctions -> collect(returnVariables) -> collect(type))))"/>
+        <details key="VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes" value="contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.variables -> collect(type)))"/>
+        <details key="EventsCanOnlyUseLocalTypesOfContractOrGlobalTypes" value="contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.events -> collect(parameters) -> collect(type)))"/>
+        <details key="ModifiersCanOnlyUseLocalTypesOfContractOrGlobalTypes" value="contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.modifiers -> collect(parameters) -> collect(type)))"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contracts" upperBound="-1"
+          eType="#//soliditycontracts/Contract" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="globalFunctions" upperBound="-1"
+          eType="#//soliditycontracts/GlobalFunction" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="globalTypes" upperBound="-1"
+          eType="#//soliditycontracts/Type" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constructor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ConstructorParameterNamesMustBeUnique"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ConstructorParameterNamesMustBeUnique" value="parameters -> isUnique(name)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//soliditycontracts/ConstructorParameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//soliditycontracts/MappingKeyType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//soliditycontracts/PrimitiveTypeEnum"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypeEnum">
+      <eLiterals name="bool"/>
+      <eLiterals name="int" value="1"/>
+      <eLiterals name="uint" value="2"/>
+      <eLiterals name="address" value="3"/>
+      <eLiterals name="address_payable" value="4"/>
+      <eLiterals name="bytes1" value="5"/>
+      <eLiterals name="bytes2" value="6"/>
+      <eLiterals name="bytes3" value="7"/>
+      <eLiterals name="bytes4" value="8"/>
+      <eLiterals name="bytes5" value="9"/>
+      <eLiterals name="bytes6" value="10"/>
+      <eLiterals name="bytes7" value="11"/>
+      <eLiterals name="bytes8" value="12"/>
+      <eLiterals name="bytes9" value="13"/>
+      <eLiterals name="bytes10" value="14"/>
+      <eLiterals name="bytes11" value="15"/>
+      <eLiterals name="bytes12" value="16"/>
+      <eLiterals name="bytes13" value="17"/>
+      <eLiterals name="bytes14" value="18"/>
+      <eLiterals name="bytes15" value="19"/>
+      <eLiterals name="bytes16" value="20"/>
+      <eLiterals name="bytes17" value="21"/>
+      <eLiterals name="bytes18" value="22"/>
+      <eLiterals name="bytes19" value="23"/>
+      <eLiterals name="bytes20" value="24"/>
+      <eLiterals name="bytes21" value="25"/>
+      <eLiterals name="bytes22" value="26"/>
+      <eLiterals name="bytes23" value="27"/>
+      <eLiterals name="bytes24" value="28"/>
+      <eLiterals name="bytes25" value="29"/>
+      <eLiterals name="bytes26" value="30"/>
+      <eLiterals name="bytes27" value="31"/>
+      <eLiterals name="bytes28" value="32"/>
+      <eLiterals name="bytes29" value="33"/>
+      <eLiterals name="bytes30" value="34"/>
+      <eLiterals name="bytes31" value="35"/>
+      <eLiterals name="bytes32" value="36"/>
+      <eLiterals name="int8" value="37"/>
+      <eLiterals name="int16" value="38"/>
+      <eLiterals name="int24" value="39"/>
+      <eLiterals name="int32" value="40"/>
+      <eLiterals name="int40" value="41"/>
+      <eLiterals name="int48" value="42"/>
+      <eLiterals name="int56" value="43"/>
+      <eLiterals name="int64" value="44"/>
+      <eLiterals name="int72" value="45"/>
+      <eLiterals name="int80" value="46"/>
+      <eLiterals name="int88" value="47"/>
+      <eLiterals name="int96" value="48"/>
+      <eLiterals name="int104" value="49"/>
+      <eLiterals name="int112" value="50"/>
+      <eLiterals name="int120" value="51"/>
+      <eLiterals name="int128" value="52"/>
+      <eLiterals name="int136" value="53"/>
+      <eLiterals name="int144" value="54"/>
+      <eLiterals name="int152" value="55"/>
+      <eLiterals name="int160" value="56"/>
+      <eLiterals name="int168" value="57"/>
+      <eLiterals name="int176" value="58"/>
+      <eLiterals name="int184" value="59"/>
+      <eLiterals name="int192" value="60"/>
+      <eLiterals name="int200" value="61"/>
+      <eLiterals name="int208" value="62"/>
+      <eLiterals name="int216" value="63"/>
+      <eLiterals name="int224" value="64"/>
+      <eLiterals name="int232" value="65"/>
+      <eLiterals name="int240" value="66"/>
+      <eLiterals name="int248" value="67"/>
+      <eLiterals name="int256" value="68"/>
+      <eLiterals name="uint8" value="69"/>
+      <eLiterals name="uint16" value="70"/>
+      <eLiterals name="uint24" value="71"/>
+      <eLiterals name="uint32" value="72"/>
+      <eLiterals name="uint40" value="73"/>
+      <eLiterals name="uint48" value="74"/>
+      <eLiterals name="uint56" value="75"/>
+      <eLiterals name="uint64" value="76"/>
+      <eLiterals name="uint72" value="77"/>
+      <eLiterals name="uint80" value="78"/>
+      <eLiterals name="uint88" value="79"/>
+      <eLiterals name="uint96" value="80"/>
+      <eLiterals name="uint104" value="81"/>
+      <eLiterals name="uint112" value="82"/>
+      <eLiterals name="uint120" value="83"/>
+      <eLiterals name="uint128" value="84"/>
+      <eLiterals name="uint136" value="85"/>
+      <eLiterals name="uint144" value="86"/>
+      <eLiterals name="uint152" value="87"/>
+      <eLiterals name="uint160" value="88"/>
+      <eLiterals name="uint168" value="89"/>
+      <eLiterals name="uint176" value="90"/>
+      <eLiterals name="uint184" value="91"/>
+      <eLiterals name="uint192" value="92"/>
+      <eLiterals name="uint200" value="93"/>
+      <eLiterals name="uint208" value="94"/>
+      <eLiterals name="uint216" value="95"/>
+      <eLiterals name="uint224" value="96"/>
+      <eLiterals name="uint232" value="97"/>
+      <eLiterals name="uint240" value="98"/>
+      <eLiterals name="uint248" value="99"/>
+      <eLiterals name="uint256" value="100"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReturnVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="VariableMutability">
+      <eLiterals name="default"/>
+      <eLiterals name="constant" value="1"/>
+      <eLiterals name="immutable" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Struct" eSuperTypes="#//soliditycontracts/Type ../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="StructCannotContainItself StructMemberNamesMustBeUnique"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="StructCannotContainItself" value="self.members -> collect(type) -> excludes(self)"/>
+        <details key="StructMemberNamesMustBeUnique" value="self.members -> isUnique(entityName)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" lowerBound="1"
+          upperBound="-1" eType="#//soliditycontracts/StructMember" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataLocation" eType="#//soliditycontracts/DataLocation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Contract" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ModifierNamesMustBeUnique StateVariableNamesMustBeUnique ContractCannotInheritFromItself ContractsReferencedInFunctionOverridesMustBeIncludedInParents ContractsReferencedInOverrideOfModifiersMustBeIncludedInParents ContractMustContainOverrridingFunctions"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ModifierNamesMustBeUnique" value="self.modifiers -> isUnique(entityName)"/>
+        <details key="StateVariableNamesMustBeUnique" value="self.variables -> isUnique(entityName)"/>
+        <details key="ContractCannotInheritFromItself" value="parents->excludes(self)"/>
+        <details key="ContractsReferencedInFunctionOverridesMustBeIncludedInParents"
+            value="parents -> includesAll(overrideFunctions -> collect(baseContracts))"/>
+        <details key="ContractsReferencedInOverrideOfModifiersMustBeIncludedInParents"
+            value="parents -> includesAll(modifiers -> collect(override))"/>
+        <details key="ContractMustContainOverrridingFunctions" value="overrideFunctions -> forAll(f|localFunctions -> union(providedFunctions) -> includes(f.overriding))"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+          eType="#//soliditycontracts/StateVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedFunctions" upperBound="-1"
+          eType="#//soliditycontracts/GlobalFunction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constructor" eType="#//soliditycontracts/Constructor"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+          eType="#//soliditycontracts/Event" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parents" upperBound="-1"
+          eType="#//soliditycontracts/Contract"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
+          eType="#//soliditycontracts/Modifier" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localTypes" upperBound="-1"
+          eType="#//soliditycontracts/Type" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredFunctions" upperBound="-1"
+          eType="#//soliditycontracts/GlobalFunction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localFunctions" upperBound="-1"
+          eType="#//soliditycontracts/LocalFunction" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="overrideFunctions" upperBound="-1"
+          eType="#//soliditycontracts/OverrideFunction" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionParameter" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConstructorParameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultArray" eSuperTypes="#//soliditycontracts/MappingKeyType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//soliditycontracts/DefaultArrayEnum"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataLocation" eType="#//soliditycontracts/DataLocation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DefaultArrayEnum">
+      <eLiterals name="bytes"/>
+      <eLiterals name="string" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionType" eSuperTypes="#//soliditycontracts/Type">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ExternalFunctionTypeCannotUseMappingAsParameter ExternalFunctionTypeCannotUseMappingAsReturnVariable"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ExternalFunctionTypeCannotUseMappingAsParameter" value="visibility = FunctionTypeVisibility::external implies parameterTypes -> excludes(Mapping)"/>
+        <details key="ExternalFunctionTypeCannotUseMappingAsReturnVariable" value="visibility = FunctionTypeVisibility::external implies returnTypes -> excludes(Mapping)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//soliditycontracts/FunctionTypeVisibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutability" eType="#//soliditycontracts/FunctionMutability"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"
+          eType="#//soliditycontracts/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnTypes" upperBound="-1"
+          eType="#//soliditycontracts/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContractType" eSuperTypes="#//soliditycontracts/MappingKeyType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contract" lowerBound="1"
+          eType="#//soliditycontracts/Contract"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="LocalFunctionVisibility">
+      <eLiterals name="internal" value="2"/>
+      <eLiterals name="private" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OverrideFunction" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="BaseFunctionCannotBePrivate OverridingFunctionCannotBePrivate BaseFunctionMustBeIncludedInBaseContract BaseAndOverridingFunctionMustHaveSameName BaseAndOverridingFunctionMustHaveSameParameterNameAndTypes LocalFunctionsCanOnlyBeOverriddenByLocalFunctions GlobalFunctionsCanOnlyBeOverriddenByGlobalFunctions OverridingVisibilityOnlyFromExternalToPublicAllowed OverrideMutabilityOnlyFromDefaultToViewToPureAllowed"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="BaseFunctionCannotBePrivate" value="base.oclIsTypeOf(LocalFunction) implies base.oclAsType(LocalFunction).visibility &lt;> LocalFunctionVisibility::private"/>
+        <details key="OverridingFunctionCannotBePrivate" value="overriding.oclIsTypeOf(LocalFunction) implies overriding.oclAsType(LocalFunction).visibility &lt;> LocalFunctionVisibility::private"/>
+        <details key="BaseFunctionMustBeIncludedInBaseContract" value="baseContracts -> forAll(c| c.localFunctions -> union(c.providedFunctions) -> includes(base))"/>
+        <details key="BaseAndOverridingFunctionMustHaveSameName" value="base.entityName = overriding.entityName"/>
+        <details key="BaseAndOverridingFunctionMustHaveSameParameterNameAndTypes"
+            value="Sequence{1..base.parameters -> size()} -> forAll(i| base.parameters -> at(i) -> collect(name) = overriding.parameters -> at(i) -> collect(name) and base.parameters -> at(i) -> collect(type) = overriding.parameters -> at(i) -> collect(type))"/>
+        <details key="LocalFunctionsCanOnlyBeOverriddenByLocalFunctions" value="base.oclIsTypeOf(LocalFunction) implies overriding.oclIsTypeOf(LocalFunction)"/>
+        <details key="GlobalFunctionsCanOnlyBeOverriddenByGlobalFunctions" value="base.oclIsTypeOf(GlobalFunction) implies overriding.oclIsTypeOf(GlobalFunction)"/>
+        <details key="OverridingVisibilityOnlyFromExternalToPublicAllowed" value="(base.oclIsTypeOf(GlobalFunction) and overriding.oclIsTypeOf(GlobalFunction)) implies base.oclAsType(GlobalFunction).visibility = overriding.oclAsType(GlobalFunction).visibility or (base.oclAsType(GlobalFunction).visibility = GlobalFunctionVisibility::external and overriding.oclAsType(GlobalFunction).visibility = GlobalFunctionVisibility::public)"/>
+        <details key="OverrideMutabilityOnlyFromDefaultToViewToPureAllowed" value="base.mutability = overriding.mutability or (base.mutability = FunctionMutability::default and (overriding.mutability = FunctionMutability::view or overriding.mutability = FunctionMutability::pure) or (base.mutability = FunctionMutability::view and overriding.mutability = FunctionMutability::pure))"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base" lowerBound="1"
+          eType="#//soliditycontracts/Function"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="overriding" lowerBound="1"
+          eType="#//soliditycontracts/Function"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="baseContracts" lowerBound="1"
+          upperBound="-1" eType="#//soliditycontracts/Contract"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalFunction" eSuperTypes="#//soliditycontracts/Function">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="PrivateFunctionsCannotBeVirtual"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="PrivateFunctionsCannotBeVirtual" value="visibility = LocalFunctionVisibility::private implies virtual = false"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//soliditycontracts/LocalFunctionVisibility"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GlobalFunction" eSuperTypes="#//soliditycontracts/Function">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="PublicFunctionCannotUseMappingAsParameter PublicFunctionCannotUseMappingAsReturnVariable ExternalFunctionCannotUseMappingAsParameter ExternalFunctionCannotUseMappingAsReturnVariable"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="PublicFunctionCannotUseMappingAsParameter" value="visibility = GlobalFunctionVisibility::public implies parameters -> collect(type) -> excludes(Mapping)"/>
+        <details key="PublicFunctionCannotUseMappingAsReturnVariable" value="visibility = GlobalFunctionVisibility::public implies returnVariables -> collect(type) -> excludes(Mapping)"/>
+        <details key="ExternalFunctionCannotUseMappingAsParameter" value="visibility = GlobalFunctionVisibility::external implies parameters -> collect(type) -> excludes(Mapping)"/>
+        <details key="ExternalFunctionCannotUseMappingAsReturnVariable" value="visibility = GlobalFunctionVisibility::external implies returnVariables -> collect(type) -> excludes(Mapping)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//soliditycontracts/GlobalFunctionVisibility"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="GlobalFunctionVisibility">
+      <eLiterals name="public"/>
+      <eLiterals name="external" value="1"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="soliditysystem" nsURI="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditysystem"
+      nsPrefix="soliditysystem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemAssembly" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instances" upperBound="-1"
+          eType="#//soliditysystem/Instance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+          eType="#//soliditysystem/Connector" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Instance" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ProvidedInterfacesMustContainProvidedFunctionsFromContract RequiredInterfacesMustContainRequiredFunctionsFromContract"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="ProvidedInterfacesMustContainProvidedFunctionsFromContract"
+            value="contract.providedFunctions -> includesAll(providedInterfaces->collect(function))"/>
+        <details key="RequiredInterfacesMustContainRequiredFunctionsFromContract"
+            value="contract.requiredFunctions -> includesAll(requiredInterfaces->collect(function))"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contract" lowerBound="1"
+          eType="#//soliditycontracts/Contract"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterfaces" upperBound="-1"
+          eType="#//soliditysystem/ProvidedInterface" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterfaces" upperBound="-1"
+          eType="#//soliditysystem/RequiredInterface" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="InterfacesMustMatch"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="InterfacesMustMatch" value="providedInterface.function = requiredInterface.function"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface" lowerBound="1"
+          eType="#//soliditysystem/ProvidedInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface" lowerBound="1"
+          eType="#//soliditysystem/RequiredInterface"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedInterface" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="function" lowerBound="1"
+          eType="#//soliditycontracts/GlobalFunction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredInterface" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="function" lowerBound="1"
+          eType="#//soliditycontracts/GlobalFunction"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

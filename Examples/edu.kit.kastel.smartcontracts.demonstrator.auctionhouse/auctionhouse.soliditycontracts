@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soliditycontracts:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts">
+  <contracts entityName="AuctionManager" providedFunctions="_H8eR5M9TEeuxxNqFj6C9Cw" requiredFunctions="_H8eR489TEeuxxNqFj6C9Cw"/>
+  <contracts entityName="SingleAuction" providedFunctions="_H8eR4c9TEeuxxNqFj6C9Cw _H8eR5c9TEeuxxNqFj6C9Cw _H8eR489TEeuxxNqFj6C9Cw _H8eR4M9TEeuxxNqFj6C9Cw _H8eR4s9TEeuxxNqFj6C9Cw" requiredFunctions="_H8eR5s9TEeuxxNqFj6C9Cw">
+    <variables id="_q-PzQNf-EeujbKPtjBydBQ" entityName="auctionClosed" type="_H8eR589TEeuxxNqFj6C9Cw"/>
+    <variables id="_q-PzQdf-EeujbKPtjBydBQ" entityName="managerAddress" type="_H8fgAc9TEeuxxNqFj6C9Cw"/>
+    <variables id="_dYVJUPk-Eeut0PJH8yPPjQ" entityName="sellerAddress" type="_H8fgAc9TEeuxxNqFj6C9Cw"/>
+  </contracts>
+  <globalFunctions id="_H8eR4M9TEeuxxNqFj6C9Cw" entityName="sellerWithdraw"/>
+  <globalFunctions id="_H8eR4c9TEeuxxNqFj6C9Cw" entityName="bid">
+    <parameters id="_q-RBYNf-EeujbKPtjBydBQ" name="value" type="_H8eR6M9TEeuxxNqFj6C9Cw"/>
+  </globalFunctions>
+  <globalFunctions id="_H8eR4s9TEeuxxNqFj6C9Cw" entityName="withdraw"/>
+  <globalFunctions id="_H8eR489TEeuxxNqFj6C9Cw" entityName="emergencyShutdown"/>
+  <globalFunctions id="_H8eR5M9TEeuxxNqFj6C9Cw" entityName="createNewAuction">
+    <parameters id="_q-RBZNf-EeujbKPtjBydBQ" name="item" type="_H8e48M9TEeuxxNqFj6C9Cw"/>
+    <parameters id="_q-RBZdf-EeujbKPtjBydBQ" name="expiration" type="_H8eR6M9TEeuxxNqFj6C9Cw"/>
+  </globalFunctions>
+  <globalFunctions id="_H8eR5c9TEeuxxNqFj6C9Cw" entityName="close">
+    <returnVariables name="res" type="_H8eR589TEeuxxNqFj6C9Cw"/>
+  </globalFunctions>
+  <globalFunctions id="_H8eR5s9TEeuxxNqFj6C9Cw" entityName="checkId" mutability="view">
+    <parameters id="_q-SPgdf-EeujbKPtjBydBQ" name="identityToCheck" type="_H8fgAc9TEeuxxNqFj6C9Cw"/>
+    <parameters id="_q-SPgtf-EeujbKPtjBydBQ" name="roleToCheck" type="_H8gHEM9TEeuxxNqFj6C9Cw"/>
+  </globalFunctions>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_H8eR589TEeuxxNqFj6C9Cw"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_H8eR6M9TEeuxxNqFj6C9Cw" type="int"/>
+  <globalTypes xsi:type="soliditycontracts:Struct" id="_H8e48M9TEeuxxNqFj6C9Cw" entityName="Item" dataLocation="memory">
+    <members entityName="tokenLink" type="_H8fgAM9TEeuxxNqFj6C9Cw"/>
+  </globalTypes>
+  <globalTypes xsi:type="soliditycontracts:DefaultArray" id="_H8fgAM9TEeuxxNqFj6C9Cw" type="string"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_H8fgAc9TEeuxxNqFj6C9Cw" type="address"/>
+  <globalTypes xsi:type="soliditycontracts:Enum" id="_H8gHEM9TEeuxxNqFj6C9Cw" entityName="Roles">
+    <members value="Bidder"/>
+    <members value="Seller"/>
+    <members value="Manager"/>
+  </globalTypes>
+</soliditycontracts:Repository>

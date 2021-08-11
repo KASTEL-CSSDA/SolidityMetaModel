@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rbac:AccessControlRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rbac="http://sdq.kastel.kit.edu/SolidityMetaModel/rbac">
+  <accessibleOperationsByRole roles="//@roles.0">
+    <operation href="everything.core#_TKl4AOGaEeu8P_0p7a9jpQ"/>
+  </accessibleOperationsByRole>
+  <accessibleVariablesByRole roles="//@roles.0">
+    <variable href="everything.core#_IiqnIOGGEeu8P_0p7a9jpQ"/>
+  </accessibleVariablesByRole>
+  <accessOperationDef>
+    <operation href="everything.core#_k-dc4OGHEeu8P_0p7a9jpQ"/>
+    <identity href="everything.core#//@globalFunctions.2/@parameters.1"/>
+    <roleDetermining href="everything.core#//@globalFunctions.2/@parameters.0"/>
+  </accessOperationDef>
+  <roles entityName="TestRole"/>
+</rbac:AccessControlRepository>

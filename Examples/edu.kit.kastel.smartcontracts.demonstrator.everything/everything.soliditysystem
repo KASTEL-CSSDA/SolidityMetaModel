@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:SystemAssembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:system="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditysystem" id="_WX96AOCJEeu3lIvsDpaleA" entityName="SuperSystem">
+  <instances id="_UixhAuGcEeu8P_0p7a9jpQ">
+    <contract href="everything.core#//@contracts.2"/>
+    <requiredInterfaces id="_pNaHkeGdEeu8P_0p7a9jpQ">
+      <function href="everything.core#//@globalFunctions.3"/>
+    </requiredInterfaces>
+  </instances>
+  <instances id="_VaP7kOGcEeu8P_0p7a9jpQ">
+    <contract href="everything.core#//@contracts.3"/>
+    <providedInterfaces id="_OAm_EOGdEeu8P_0p7a9jpQ">
+      <function href="everything.core#//@globalFunctions.3"/>
+    </providedInterfaces>
+  </instances>
+  <instances id="_VrQMAOGcEeu8P_0p7a9jpQ">
+    <contract href="everything.core#//@contracts.0"/>
+  </instances>
+  <instances id="_cy4WAOGcEeu8P_0p7a9jpQ">
+    <contract href="everything.core#//@contracts.1"/>
+  </instances>
+  <connectors id="_M8Ni0eGdEeu8P_0p7a9jpQ" providedInterface="//@instances.1/@providedInterfaces.0" requiredInterface="//@instances.0/@requiredInterfaces.0"/>
+</system:SystemAssembly>

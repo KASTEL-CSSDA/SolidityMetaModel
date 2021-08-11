@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:SystemAssembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:system="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditysystem" id="_HVOrsM9TEeuxxNqFj6C9Cw" entityName="A">
+  <instances id="_lTrkEM6xEeuKb_715mVIbA">
+    <contract href="auctionhouse.core#//@contracts.0"/>
+    <providedInterfaces id="_4_9E8M6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.4"/>
+    </providedInterfaces>
+    <requiredInterfaces id="_4_9E8c6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.3"/>
+    </requiredInterfaces>
+  </instances>
+  <instances id="_lTsyMM6xEeuKb_715mVIbA">
+    <contract href="auctionhouse.core#//@contracts.1"/>
+    <providedInterfaces id="_4_9E886yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.1"/>
+    </providedInterfaces>
+    <providedInterfaces id="_4_9E9M6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.3"/>
+    </providedInterfaces>
+    <providedInterfaces id="_4_9E9c6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.2"/>
+    </providedInterfaces>
+    <providedInterfaces id="_4_9E9s6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.0"/>
+    </providedInterfaces>
+    <providedInterfaces id="_4_9sAM6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.5"/>
+    </providedInterfaces>
+    <requiredInterfaces id="_4_9sAc6yEeuump1BGsrP3A">
+      <function href="auctionhouse.core#//@globalFunctions.6"/>
+    </requiredInterfaces>
+  </instances>
+  <connectors id="_4_9sBc6yEeuump1BGsrP3A" providedInterface="//@instances.1/@providedInterfaces.1" requiredInterface="//@instances.0/@requiredInterfaces.0"/>
+</system:SystemAssembly>

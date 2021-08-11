@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SolidityMetaModel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.soliditymetamodel.rbac.presentation.RBACModelWizardID"
+            name="%_UI_RBACModelWizard_label"
+            class="edu.kit.kastel.sdq.soliditymetamodel.rbac.presentation.RBACModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RBACModelFile.gif">
+         <description>%_UI_RBACModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SolidityMetaModel -->
+      <editor
+            id="edu.kit.kastel.sdq.soliditymetamodel.rbac.presentation.RBACEditorID"
+            name="%_UI_RBACEditor_label"
+            icon="icons/full/obj16/RBACModelFile.gif"
+            extensions="rbac"
+            class="edu.kit.kastel.sdq.soliditymetamodel.rbac.presentation.RBACEditor"
+            contributorClass="edu.kit.kastel.sdq.soliditymetamodel.rbac.presentation.RBACActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SolidityMetaModel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.presentation.SolidityContractsModelWizardID"
+            name="%_UI_SolidityContractsModelWizard_label"
+            class="edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.presentation.SolidityContractsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SolidityContractsModelFile.gif">
+         <description>%_UI_SolidityContractsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SolidityMetaModel -->
+      <editor
+            id="edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.presentation.SolidityContractsEditorID"
+            name="%_UI_SolidityContractsEditor_label"
+            icon="icons/full/obj16/SolidityContractsModelFile.gif"
+            extensions="soliditycontracts"
+            class="edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.presentation.SolidityContractsEditor"
+            contributorClass="edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.presentation.SolidityContractsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SolidityMetaModel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.soliditymetamodel.soliditysystem.presentation.SoliditySystemModelWizardID"
+            name="%_UI_SoliditySystemModelWizard_label"
+            class="edu.kit.kastel.sdq.soliditymetamodel.soliditysystem.presentation.SoliditySystemModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SoliditySystemModelFile.gif">
+         <description>%_UI_SoliditySystemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SolidityMetaModel -->
+      <editor
+            id="edu.kit.kastel.sdq.soliditymetamodel.soliditysystem.presentation.SoliditySystemEditorID"
+            name="%_UI_SoliditySystemEditor_label"
+            icon="icons/full/obj16/SoliditySystemModelFile.gif"
+            extensions="soliditysystem"
+            class="edu.kit.kastel.sdq.soliditymetamodel.soliditysystem.presentation.SoliditySystemEditor"
+            contributorClass="edu.kit.kastel.sdq.soliditymetamodel.soliditysystem.presentation.SoliditySystemActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

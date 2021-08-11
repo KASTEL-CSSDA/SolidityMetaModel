@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soliditycontracts:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts">
+  <contracts entityName="ParentContract" providedFunctions="_kcmkWOCHEeuY2OGIfOpYnw">
+    <constructor/>
+    <modifiers entityName="testModifier" virtual="true">
+      <parameters name="modifierParam" type="_kcmkWuCHEeuY2OGIfOpYnw"/>
+    </modifiers>
+    <localFunctions id="_kcmkVeCHEeuY2OGIfOpYnw" entityName="internalTestFunction" modifiers="//@contracts.0/@modifiers.0">
+      <returnVariables name="res" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+      <parameters id="_kcmkVuCHEeuY2OGIfOpYnw" name="input" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+    </localFunctions>
+  </contracts>
+  <contracts entityName="SecondParentContract" providedFunctions="_kcmkWOCHEeuY2OGIfOpYnw">
+    <modifiers entityName="testModifier" virtual="true">
+      <parameters name="modifierParam" type="_kcmkWuCHEeuY2OGIfOpYnw"/>
+    </modifiers>
+  </contracts>
+  <contracts entityName="ChildContract" providedFunctions="_kcmkWeCHEeuY2OGIfOpYnw" parents="//@contracts.0 //@contracts.1" requiredFunctions="_TKl4AOGaEeu8P_0p7a9jpQ">
+    <modifiers entityName="testModifier" override="//@contracts.0 //@contracts.1">
+      <parameters name="modifierParam" type="_kcmkWuCHEeuY2OGIfOpYnw"/>
+    </modifiers>
+    <overrideFunctions id="_kcmkV-CHEeuY2OGIfOpYnw" base="_kcmkWOCHEeuY2OGIfOpYnw" overriding="_kcmkWeCHEeuY2OGIfOpYnw" baseContracts="//@contracts.0 //@contracts.1"/>
+  </contracts>
+  <contracts entityName="Everything" providedFunctions="_TKl4AOGaEeu8P_0p7a9jpQ" requiredFunctions="_k-dc4OGHEeu8P_0p7a9jpQ">
+    <variables id="_IiqnIOGGEeu8P_0p7a9jpQ" entityName="variable1" type="_o-D9VOCHEeuY2OGIfOpYnw"/>
+    <variables id="_y_HJoOGGEeu8P_0p7a9jpQ" entityName="variable2" mutability="constant" visibility="internal" type="_qGhaNOCHEeuY2OGIfOpYnw"/>
+    <variables id="_1fs3EOGGEeu8P_0p7a9jpQ" entityName="variable3" mutability="immutable" visibility="private" type="_kcmkWuCHEeuY2OGIfOpYnw"/>
+    <variables id="_Fja84OGIEeu8P_0p7a9jpQ" entityName="variable4" type="_rFxQtOCHEeuY2OGIfOpYnw"/>
+    <variables id="_F2XHAOGIEeu8P_0p7a9jpQ" entityName="variable5" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+    <variables id="_GH474OGIEeu8P_0p7a9jpQ" entityName="variable6" type="_ssk2dOCHEeuY2OGIfOpYnw"/>
+    <variables id="_GYtmIOGIEeu8P_0p7a9jpQ" entityName="variable7" type="_nNvPNOCHEeuY2OGIfOpYnw"/>
+    <variables id="_JWJAkOGIEeu8P_0p7a9jpQ" entityName="variable8" type="_t_GOROCHEeuY2OGIfOpYnw"/>
+    <variables id="_4NlHsOGIEeu8P_0p7a9jpQ" entityName="variable9" type="_D9Dt9eGGEeu8P_0p7a9jpQ"/>
+    <variables id="_-IaucOGIEeu8P_0p7a9jpQ" entityName="variable10" type="_Gf8hcuGGEeu8P_0p7a9jpQ"/>
+    <variables id="_Bkw5gOGJEeu8P_0p7a9jpQ" entityName="variable11" type="_KXD88eGGEeu8P_0p7a9jpQ"/>
+    <variables id="_ddeFwOGJEeu8P_0p7a9jpQ" entityName="variable12" type="_ORJz-OGGEeu8P_0p7a9jpQ"/>
+    <variables id="_0KbyoOGZEeu8P_0p7a9jpQ" entityName="variable13" type="_NIT8luGGEeu8P_0p7a9jpQ"/>
+    <variables id="_9X_48OGaEeu8P_0p7a9jpQ" entityName="variable14" type="_LEEM4-GGEeu8P_0p7a9jpQ"/>
+    <constructor>
+      <parameters name="param" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+      <parameters name="param2" type="_o-D9VOCHEeuY2OGIfOpYnw"/>
+    </constructor>
+    <events entityName="Event">
+      <parameters type="_kcmkWuCHEeuY2OGIfOpYnw" name="param1"/>
+      <parameters type="_o-D9VOCHEeuY2OGIfOpYnw" name="param2" indexed="true"/>
+    </events>
+    <events entityName="AnonymousEvent" anonymous="true"/>
+    <modifiers entityName="Modifier1">
+      <parameters name="param" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+    </modifiers>
+    <localTypes xsi:type="soliditycontracts:Struct" id="_D9Dt9eGGEeu8P_0p7a9jpQ" entityName="MyStruct">
+      <members entityName="member1" type="_o-D9VOCHEeuY2OGIfOpYnw"/>
+      <members entityName="member2" type="_kcmkWuCHEeuY2OGIfOpYnw"/>
+    </localTypes>
+    <localTypes xsi:type="soliditycontracts:Enum" id="_Gf8hcuGGEeu8P_0p7a9jpQ" entityName="MyEnum">
+      <members value="Member1"/>
+      <members value="Member2"/>
+    </localTypes>
+    <localTypes xsi:type="soliditycontracts:CustomArray" id="_KXD88eGGEeu8P_0p7a9jpQ" size="5" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+    <localTypes xsi:type="soliditycontracts:CustomArray" id="_sQPEkeGLEeu8P_0p7a9jpQ" type="_kcmkW-CHEeuY2OGIfOpYnw" dataLocation="memory"/>
+    <localTypes xsi:type="soliditycontracts:CustomArray" id="_vsXNMeGLEeu8P_0p7a9jpQ" type="_kcmkW-CHEeuY2OGIfOpYnw" dataLocation="calldata"/>
+    <localTypes xsi:type="soliditycontracts:Mapping" id="_LEEM4-GGEeu8P_0p7a9jpQ" keyType="_o-D9VOCHEeuY2OGIfOpYnw" valueType="_kcmkWuCHEeuY2OGIfOpYnw"/>
+    <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_Lur3NOGGEeu8P_0p7a9jpQ"/>
+    <localTypes xsi:type="soliditycontracts:DefaultArray" id="_NIT8luGGEeu8P_0p7a9jpQ"/>
+    <localTypes xsi:type="soliditycontracts:DefaultArray" id="_ps1LVuGZEeu8P_0p7a9jpQ" type="string" dataLocation="memory"/>
+    <localTypes xsi:type="soliditycontracts:DefaultArray" id="_tQCMVuGZEeu8P_0p7a9jpQ" dataLocation="calldata"/>
+    <localTypes xsi:type="soliditycontracts:FunctionType" id="_NqYH1-GGEeu8P_0p7a9jpQ" visibility="external" mutability="pure"/>
+    <localTypes xsi:type="soliditycontracts:FunctionType" id="_RUHuV-GJEeu8P_0p7a9jpQ"/>
+    <localTypes xsi:type="soliditycontracts:FunctionType" id="_VpDuR-GJEeu8P_0p7a9jpQ" mutability="view"/>
+    <localTypes xsi:type="soliditycontracts:FunctionType" id="_X7XvJ-GJEeu8P_0p7a9jpQ" mutability="payable"/>
+    <localTypes xsi:type="soliditycontracts:ContractType" id="_ORJz-OGGEeu8P_0p7a9jpQ" contract="//@contracts.0"/>
+    <localTypes xsi:type="soliditycontracts:Struct" id="_Ju8-peGHEeu8P_0p7a9jpQ" entityName="MyStructMemory" dataLocation="memory">
+      <members entityName="member" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+    </localTypes>
+    <localTypes xsi:type="soliditycontracts:Struct" id="_MZJUBeGHEeu8P_0p7a9jpQ" entityName="MyStructCalldata" dataLocation="calldata">
+      <members entityName="member" type="_kcmkW-CHEeuY2OGIfOpYnw"/>
+    </localTypes>
+    <localFunctions id="_OywsOeGGEeu8P_0p7a9jpQ" entityName="function1" mutability="pure" modifiers="//@contracts.3/@modifiers.0">
+      <returnVariables type="_sQPEkeGLEeu8P_0p7a9jpQ"/>
+      <parameters id="_bsq4sOGYEeu8P_0p7a9jpQ" name="param" type="_sQPEkeGLEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+    <localFunctions id="_Nd5DqeGJEeu8P_0p7a9jpQ" entityName="function2" mutability="view" visibility="private">
+      <parameters id="_iHPIYOGYEeu8P_0p7a9jpQ" name="param" type="_vsXNMeGLEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+    <localFunctions id="_MdKfGeGMEeu8P_0p7a9jpQ" entityName="function3">
+      <parameters id="_HfCFQOGZEeu8P_0p7a9jpQ" name="functionType1" type="_NqYH1-GGEeu8P_0p7a9jpQ"/>
+      <parameters id="_KC0QoOGZEeu8P_0p7a9jpQ" name="functionType2" type="_RUHuV-GJEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+    <localFunctions id="_N3XzSeGMEeu8P_0p7a9jpQ" entityName="function4">
+      <returnVariables name="out1" type="_VpDuR-GJEeu8P_0p7a9jpQ"/>
+      <returnVariables name="out2" type="_X7XvJ-GJEeu8P_0p7a9jpQ"/>
+      <parameters id="_ZISa8OGZEeu8P_0p7a9jpQ" name="enum1" type="_Gf8hcuGGEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+    <localFunctions id="_P5sQWeGMEeu8P_0p7a9jpQ" entityName="function5"/>
+    <localFunctions id="_ehgiaeGZEeu8P_0p7a9jpQ" entityName="function6">
+      <parameters id="_hjDAwOGZEeu8P_0p7a9jpQ" name="test" type="_MZJUBeGHEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+    <localFunctions id="_49rfOeGZEeu8P_0p7a9jpQ" entityName="function7">
+      <parameters id="_6lOEwOGZEeu8P_0p7a9jpQ" name="param" type="_tQCMVuGZEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+    <localFunctions id="_9ciQKeGZEeu8P_0p7a9jpQ" entityName="function8">
+      <parameters id="_-jaYoOGZEeu8P_0p7a9jpQ" name="param" type="_ps1LVuGZEeu8P_0p7a9jpQ"/>
+    </localFunctions>
+  </contracts>
+  <globalFunctions id="_kcmkWOCHEeuY2OGIfOpYnw" entityName="testFunction" modifiers="//@contracts.0/@modifiers.0" virtual="true"/>
+  <globalFunctions id="_kcmkWeCHEeuY2OGIfOpYnw" entityName="testFunction" modifiers="//@contracts.2/@modifiers.0"/>
+  <globalFunctions id="_k-dc4OGHEeu8P_0p7a9jpQ" entityName="checkId">
+    <parameters id="_smT_EOGHEeu8P_0p7a9jpQ" name="roleToCheck" type="_1D1lAuGHEeu8P_0p7a9jpQ"/>
+    <parameters id="_xQUQEOGHEeu8P_0p7a9jpQ" name="identityToCheck" type="_o-D9VOCHEeuY2OGIfOpYnw"/>
+  </globalFunctions>
+  <globalFunctions id="_TKl4AOGaEeu8P_0p7a9jpQ" entityName="functionProv" visibility="external"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_kcmkWuCHEeuY2OGIfOpYnw"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_kcmkW-CHEeuY2OGIfOpYnw" type="int"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_nNvPNOCHEeuY2OGIfOpYnw" type="uint"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_o-D9VOCHEeuY2OGIfOpYnw" type="address"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_qGhaNOCHEeuY2OGIfOpYnw" type="address_payable"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_rFxQtOCHEeuY2OGIfOpYnw" type="bytes1"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_ssk2dOCHEeuY2OGIfOpYnw" type="int8"/>
+  <globalTypes xsi:type="soliditycontracts:PrimitiveType" id="_t_GOROCHEeuY2OGIfOpYnw" type="uint8"/>
+  <globalTypes xsi:type="soliditycontracts:Enum" id="_1D1lAuGHEeu8P_0p7a9jpQ" entityName="Roles">
+    <members value="Role"/>
+  </globalTypes>
+</soliditycontracts:Repository>
