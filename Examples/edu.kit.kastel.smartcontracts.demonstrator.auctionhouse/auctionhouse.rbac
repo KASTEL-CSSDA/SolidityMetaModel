@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rbac:AccessControlRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rbac="http://sdq.kastel.kit.edu/SolidityMetaModel/rbac">
   <accessibleOperationsByRole roles="//@roles.0">
-    <operation href="auctionhouse.core#_H8eR4c9TEeuxxNqFj6C9Cw"/>
+    <operation href="auctionhouse.soliditycontracts#_H8eR4c9TEeuxxNqFj6C9Cw"/>
   </accessibleOperationsByRole>
   <accessibleOperationsByRole roles="//@roles.0 //@roles.1">
-    <operation href="auctionhouse.core#_H8eR5c9TEeuxxNqFj6C9Cw"/>
+    <operation href="auctionhouse.soliditycontracts#_H8eR5c9TEeuxxNqFj6C9Cw"/>
   </accessibleOperationsByRole>
   <accessibleOperationsByRole roles="//@roles.2">
-    <operation href="auctionhouse.core#_H8eR489TEeuxxNqFj6C9Cw"/>
+    <operation href="auctionhouse.soliditycontracts#_H8eR489TEeuxxNqFj6C9Cw"/>
   </accessibleOperationsByRole>
   <accessibleOperationsByRole roles="//@roles.0">
-    <operation href="auctionhouse.core#_H8eR4s9TEeuxxNqFj6C9Cw"/>
+    <operation href="auctionhouse.soliditycontracts#_H8eR4s9TEeuxxNqFj6C9Cw"/>
   </accessibleOperationsByRole>
   <accessibleOperationsByRole roles="//@roles.1">
-    <operation href="auctionhouse.core#_H8eR4M9TEeuxxNqFj6C9Cw"/>
+    <operation href="auctionhouse.soliditycontracts#_H8eR4M9TEeuxxNqFj6C9Cw"/>
   </accessibleOperationsByRole>
   <accessibleVariablesByRole roles="//@roles.0 //@roles.1">
-    <variable href="auctionhouse.core#_q-PzQNf-EeujbKPtjBydBQ"/>
+    <variable href="auctionhouse.soliditycontracts#_q-PzQNf-EeujbKPtjBydBQ"/>
   </accessibleVariablesByRole>
   <accessibleVariablesByRole>
-    <variable href="auctionhouse.core#_q-PzQdf-EeujbKPtjBydBQ"/>
+    <variable href="auctionhouse.soliditycontracts#_q-PzQdf-EeujbKPtjBydBQ"/>
   </accessibleVariablesByRole>
   <accessibleVariablesByRole>
-    <variable href="auctionhouse.core#_dYVJUPk-Eeut0PJH8yPPjQ"/>
+    <variable href="auctionhouse.soliditycontracts#_dYVJUPk-Eeut0PJH8yPPjQ"/>
   </accessibleVariablesByRole>
   <accessOperationDef>
-    <operation href="auctionhouse.core#_H8eR5s9TEeuxxNqFj6C9Cw"/>
-    <identity href="auctionhouse.core#_q-SPgdf-EeujbKPtjBydBQ"/>
-    <roleDetermining href="auctionhouse.core#_q-SPgtf-EeujbKPtjBydBQ"/>
+    <operation href="auctionhouse.soliditycontracts#_H8eR5s9TEeuxxNqFj6C9Cw"/>
+    <identity href="auctionhouse.soliditycontracts#_q-SPgdf-EeujbKPtjBydBQ"/>
+    <roleDetermining href="auctionhouse.soliditycontracts#_q-SPgtf-EeujbKPtjBydBQ"/>
   </accessOperationDef>
   <roles entityName="Bidder"/>
   <roles entityName="Seller"/>
