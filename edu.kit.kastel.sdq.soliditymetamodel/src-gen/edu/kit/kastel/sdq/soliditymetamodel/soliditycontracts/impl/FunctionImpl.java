@@ -40,6 +40,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.FunctionImpl#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.FunctionImpl#isVirtual <em>Virtual</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.FunctionImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.FunctionImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -114,6 +115,26 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 	 * @ordered
 	 */
 	protected EList<FunctionParameter> parameters;
+
+	/**
+	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected String content = CONTENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,6 +246,29 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 	 * @generated
 	 */
 	@Override
+	public String getContent() {
+		return content;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContent(String newContent) {
+		String oldContent = content;
+		content = newContent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolidityContractsPackage.FUNCTION__CONTENT, oldContent, content));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SolidityContractsPackage.FUNCTION__RETURN_VARIABLES:
@@ -253,6 +297,8 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 				return isVirtual();
 			case SolidityContractsPackage.FUNCTION__PARAMETERS:
 				return getParameters();
+			case SolidityContractsPackage.FUNCTION__CONTENT:
+				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -284,6 +330,9 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends FunctionParameter>)newValue);
 				return;
+			case SolidityContractsPackage.FUNCTION__CONTENT:
+				setContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -311,6 +360,9 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 			case SolidityContractsPackage.FUNCTION__PARAMETERS:
 				getParameters().clear();
 				return;
+			case SolidityContractsPackage.FUNCTION__CONTENT:
+				setContent(CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,6 +385,8 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 				return virtual != VIRTUAL_EDEFAULT;
 			case SolidityContractsPackage.FUNCTION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
+			case SolidityContractsPackage.FUNCTION__CONTENT:
+				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -351,6 +405,8 @@ public abstract class FunctionImpl extends EntityImpl implements Function {
 		result.append(mutability);
 		result.append(", virtual: ");
 		result.append(virtual);
+		result.append(", content: ");
+		result.append(content);
 		result.append(')');
 		return result.toString();
 	}

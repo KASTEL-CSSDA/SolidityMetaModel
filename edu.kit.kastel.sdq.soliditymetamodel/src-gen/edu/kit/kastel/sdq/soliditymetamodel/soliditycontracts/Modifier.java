@@ -18,6 +18,7 @@ import tools.mdsd.modelingfoundations.identifier.NamedElement;
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#getParameters <em>Parameters</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#isVirtual <em>Virtual</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#getOverride <em>Override</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getModifier()
@@ -71,5 +72,27 @@ public interface Modifier extends NamedElement {
 	 * @generated
 	 */
 	EList<Contract> getOverride();
+
+	/**
+	 * Returns the value of the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Content</em>' attribute.
+	 * @see #setContent(String)
+	 * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getModifier_Content()
+	 * @model
+	 * @generated
+	 */
+	String getContent();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#getContent <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content</em>' attribute.
+	 * @see #getContent()
+	 * @generated
+	 */
+	void setContent(String value);
 
 } // Modifier

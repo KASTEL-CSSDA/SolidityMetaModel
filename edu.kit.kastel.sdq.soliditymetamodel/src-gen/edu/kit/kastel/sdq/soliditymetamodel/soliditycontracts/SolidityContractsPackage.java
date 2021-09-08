@@ -409,13 +409,22 @@ public interface SolidityContractsPackage extends EPackage {
 	int FUNCTION__PARAMETERS = IdentifierPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION__CONTENT = IdentifierPackage.ENTITY_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 5;
+	int FUNCTION_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Function</em>' class.
@@ -721,13 +730,22 @@ public interface SolidityContractsPackage extends EPackage {
 	int MODIFIER__OVERRIDE = IdentifierPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODIFIER__CONTENT = IdentifierPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Modifier</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODIFIER_FEATURE_COUNT = IdentifierPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODIFIER_FEATURE_COUNT = IdentifierPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Modifier</em>' class.
@@ -859,13 +877,22 @@ public interface SolidityContractsPackage extends EPackage {
 	int CONSTRUCTOR__PARAMETERS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__CONTENT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Constructor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRUCTOR_FEATURE_COUNT = 1;
+	int CONSTRUCTOR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Constructor</em>' class.
@@ -1572,6 +1599,15 @@ public interface SolidityContractsPackage extends EPackage {
 	int LOCAL_FUNCTION__PARAMETERS = FUNCTION__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_FUNCTION__CONTENT = FUNCTION__CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1670,6 +1706,15 @@ public interface SolidityContractsPackage extends EPackage {
 	 * @ordered
 	 */
 	int GLOBAL_FUNCTION__PARAMETERS = FUNCTION__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOBAL_FUNCTION__CONTENT = FUNCTION__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2026,6 +2071,17 @@ public interface SolidityContractsPackage extends EPackage {
 	EReference getFunction_Parameters();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#getContent()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EAttribute getFunction_Content();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum <em>Enum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2186,6 +2242,17 @@ public interface SolidityContractsPackage extends EPackage {
 	EReference getModifier_Override();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Modifier#getContent()
+	 * @see #getModifier()
+	 * @generated
+	 */
+	EAttribute getModifier_Content();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.MappingKeyType <em>Mapping Key Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2279,6 +2346,17 @@ public interface SolidityContractsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConstructor_Parameters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Constructor#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Constructor#getContent()
+	 * @see #getConstructor()
+	 * @generated
+	 */
+	EAttribute getConstructor_Content();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.PrimitiveType <em>Primitive Type</em>}'.
@@ -3043,6 +3121,14 @@ public interface SolidityContractsPackage extends EPackage {
 		EReference FUNCTION__PARAMETERS = eINSTANCE.getFunction_Parameters();
 
 		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION__CONTENT = eINSTANCE.getFunction_Content();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.EnumImpl <em>Enum</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3173,6 +3259,14 @@ public interface SolidityContractsPackage extends EPackage {
 		EReference MODIFIER__OVERRIDE = eINSTANCE.getModifier_Override();
 
 		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODIFIER__CONTENT = eINSTANCE.getModifier_Content();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.MappingKeyType <em>Mapping Key Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3251,6 +3345,14 @@ public interface SolidityContractsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONSTRUCTOR__PARAMETERS = eINSTANCE.getConstructor_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTRUCTOR__CONTENT = eINSTANCE.getConstructor_Content();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.

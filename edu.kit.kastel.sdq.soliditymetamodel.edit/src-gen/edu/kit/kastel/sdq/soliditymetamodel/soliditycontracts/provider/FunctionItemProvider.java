@@ -58,6 +58,7 @@ public class FunctionItemProvider extends EntityItemProvider {
 			addMutabilityPropertyDescriptor(object);
 			addModifiersPropertyDescriptor(object);
 			addVirtualPropertyDescriptor(object);
+			addContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -129,6 +130,28 @@ public class FunctionItemProvider extends EntityItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Function_content_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Function_content_feature", "_UI_Function_type"),
+				 SolidityContractsPackage.Literals.FUNCTION__CONTENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -188,6 +211,7 @@ public class FunctionItemProvider extends EntityItemProvider {
 		switch (notification.getFeatureID(Function.class)) {
 			case SolidityContractsPackage.FUNCTION__MUTABILITY:
 			case SolidityContractsPackage.FUNCTION__VIRTUAL:
+			case SolidityContractsPackage.FUNCTION__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SolidityContractsPackage.FUNCTION__RETURN_VARIABLES:

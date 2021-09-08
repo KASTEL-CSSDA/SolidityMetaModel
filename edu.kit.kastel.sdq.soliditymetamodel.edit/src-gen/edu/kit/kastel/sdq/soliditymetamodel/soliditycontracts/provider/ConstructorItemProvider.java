@@ -19,12 +19,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -63,8 +65,31 @@ public class ConstructorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Constructor_content_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constructor_content_feature", "_UI_Constructor_type"),
+				 SolidityContractsPackage.Literals.CONSTRUCTOR__CONTENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -116,7 +141,10 @@ public class ConstructorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Constructor_type");
+		String label = ((Constructor)object).getContent();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Constructor_type") :
+			getString("_UI_Constructor_type") + " " + label;
 	}
 
 
@@ -132,6 +160,9 @@ public class ConstructorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Constructor.class)) {
+			case SolidityContractsPackage.CONSTRUCTOR__CONTENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case SolidityContractsPackage.CONSTRUCTOR__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

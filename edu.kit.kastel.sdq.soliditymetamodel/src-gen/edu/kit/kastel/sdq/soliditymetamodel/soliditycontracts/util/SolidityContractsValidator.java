@@ -820,7 +820,6 @@ public class SolidityContractsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRepository_ContractNameMustBeUnique(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRepository_GlobalFunctionsMustBePublicOrExternal(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRepository_GlobalFunctionCanOnlyUseGlobalTypes(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRepository_LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRepository_VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes(repository, diagnostics, context);
@@ -853,35 +852,6 @@ public class SolidityContractsValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 				 "ContractNameMustBeUnique",
 				 REPOSITORY__CONTRACT_NAME_MUST_BE_UNIQUE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the GlobalFunctionsMustBePublicOrExternal constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String REPOSITORY__GLOBAL_FUNCTIONS_MUST_BE_PUBLIC_OR_EXTERNAL__EEXPRESSION = "globalFunctions -> collect(visibility) -> excludesAll(Set{LocalFunctionVisibility::private, LocalFunctionVisibility::internal})";
-
-	/**
-	 * Validates the GlobalFunctionsMustBePublicOrExternal constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRepository_GlobalFunctionsMustBePublicOrExternal(Repository repository, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(SolidityContractsPackage.Literals.REPOSITORY,
-				 repository,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "GlobalFunctionsMustBePublicOrExternal",
-				 REPOSITORY__GLOBAL_FUNCTIONS_MUST_BE_PUBLIC_OR_EXTERNAL__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -1886,28 +1856,26 @@ public class SolidityContractsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(globalFunction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_identifierIsUnique(globalFunction, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFunction_FunctionParameterNamesAndReturnVariableNamesMustBeUnique(globalFunction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGlobalFunction_PublicFunctionCannotUseMappingAsParameter(globalFunction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGlobalFunction_PublicFunctionCannotUseMappingAsReturnVariable(globalFunction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGlobalFunction_ExternalFunctionCannotUseMappingAsParameter(globalFunction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGlobalFunction_ExternalFunctionCannotUseMappingAsReturnVariable(globalFunction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGlobalFunction_GlobalFunctionCannotUseMappingAsParameter(globalFunction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGlobalFunction_GlobalFunctionCannotUseMappingAsReturnVariable(globalFunction, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the PublicFunctionCannotUseMappingAsParameter constraint of '<em>Global Function</em>'.
+	 * The cached validation expression for the GlobalFunctionCannotUseMappingAsParameter constraint of '<em>Global Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String GLOBAL_FUNCTION__PUBLIC_FUNCTION_CANNOT_USE_MAPPING_AS_PARAMETER__EEXPRESSION = "visibility = GlobalFunctionVisibility::public implies parameters -> collect(type) -> excludes(Mapping)";
+	protected static final String GLOBAL_FUNCTION__GLOBAL_FUNCTION_CANNOT_USE_MAPPING_AS_PARAMETER__EEXPRESSION = "parameters -> collect(type) -> excludes(Mapping)";
 
 	/**
-	 * Validates the PublicFunctionCannotUseMappingAsParameter constraint of '<em>Global Function</em>'.
+	 * Validates the GlobalFunctionCannotUseMappingAsParameter constraint of '<em>Global Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGlobalFunction_PublicFunctionCannotUseMappingAsParameter(GlobalFunction globalFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateGlobalFunction_GlobalFunctionCannotUseMappingAsParameter(GlobalFunction globalFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(SolidityContractsPackage.Literals.GLOBAL_FUNCTION,
@@ -1915,28 +1883,28 @@ public class SolidityContractsValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "PublicFunctionCannotUseMappingAsParameter",
-				 GLOBAL_FUNCTION__PUBLIC_FUNCTION_CANNOT_USE_MAPPING_AS_PARAMETER__EEXPRESSION,
+				 "GlobalFunctionCannotUseMappingAsParameter",
+				 GLOBAL_FUNCTION__GLOBAL_FUNCTION_CANNOT_USE_MAPPING_AS_PARAMETER__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
 	}
 
 	/**
-	 * The cached validation expression for the PublicFunctionCannotUseMappingAsReturnVariable constraint of '<em>Global Function</em>'.
+	 * The cached validation expression for the GlobalFunctionCannotUseMappingAsReturnVariable constraint of '<em>Global Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String GLOBAL_FUNCTION__PUBLIC_FUNCTION_CANNOT_USE_MAPPING_AS_RETURN_VARIABLE__EEXPRESSION = "visibility = GlobalFunctionVisibility::public implies returnVariables -> collect(type) -> excludes(Mapping)";
+	protected static final String GLOBAL_FUNCTION__GLOBAL_FUNCTION_CANNOT_USE_MAPPING_AS_RETURN_VARIABLE__EEXPRESSION = "returnVariables -> collect(type) -> excludes(Mapping)";
 
 	/**
-	 * Validates the PublicFunctionCannotUseMappingAsReturnVariable constraint of '<em>Global Function</em>'.
+	 * Validates the GlobalFunctionCannotUseMappingAsReturnVariable constraint of '<em>Global Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGlobalFunction_PublicFunctionCannotUseMappingAsReturnVariable(GlobalFunction globalFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateGlobalFunction_GlobalFunctionCannotUseMappingAsReturnVariable(GlobalFunction globalFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(SolidityContractsPackage.Literals.GLOBAL_FUNCTION,
@@ -1944,66 +1912,8 @@ public class SolidityContractsValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "PublicFunctionCannotUseMappingAsReturnVariable",
-				 GLOBAL_FUNCTION__PUBLIC_FUNCTION_CANNOT_USE_MAPPING_AS_RETURN_VARIABLE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the ExternalFunctionCannotUseMappingAsParameter constraint of '<em>Global Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String GLOBAL_FUNCTION__EXTERNAL_FUNCTION_CANNOT_USE_MAPPING_AS_PARAMETER__EEXPRESSION = "visibility = GlobalFunctionVisibility::external implies parameters -> collect(type) -> excludes(Mapping)";
-
-	/**
-	 * Validates the ExternalFunctionCannotUseMappingAsParameter constraint of '<em>Global Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGlobalFunction_ExternalFunctionCannotUseMappingAsParameter(GlobalFunction globalFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(SolidityContractsPackage.Literals.GLOBAL_FUNCTION,
-				 globalFunction,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "ExternalFunctionCannotUseMappingAsParameter",
-				 GLOBAL_FUNCTION__EXTERNAL_FUNCTION_CANNOT_USE_MAPPING_AS_PARAMETER__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the ExternalFunctionCannotUseMappingAsReturnVariable constraint of '<em>Global Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String GLOBAL_FUNCTION__EXTERNAL_FUNCTION_CANNOT_USE_MAPPING_AS_RETURN_VARIABLE__EEXPRESSION = "visibility = GlobalFunctionVisibility::external implies returnVariables -> collect(type) -> excludes(Mapping)";
-
-	/**
-	 * Validates the ExternalFunctionCannotUseMappingAsReturnVariable constraint of '<em>Global Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGlobalFunction_ExternalFunctionCannotUseMappingAsReturnVariable(GlobalFunction globalFunction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(SolidityContractsPackage.Literals.GLOBAL_FUNCTION,
-				 globalFunction,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "ExternalFunctionCannotUseMappingAsReturnVariable",
-				 GLOBAL_FUNCTION__EXTERNAL_FUNCTION_CANNOT_USE_MAPPING_AS_RETURN_VARIABLE__EEXPRESSION,
+				 "GlobalFunctionCannotUseMappingAsReturnVariable",
+				 GLOBAL_FUNCTION__GLOBAL_FUNCTION_CANNOT_USE_MAPPING_AS_RETURN_VARIABLE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

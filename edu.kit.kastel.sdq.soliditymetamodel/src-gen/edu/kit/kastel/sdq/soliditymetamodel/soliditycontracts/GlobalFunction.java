@@ -16,8 +16,8 @@ package edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts;
  * </ul>
  *
  * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getGlobalFunction()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PublicFunctionCannotUseMappingAsParameter PublicFunctionCannotUseMappingAsReturnVariable ExternalFunctionCannotUseMappingAsParameter ExternalFunctionCannotUseMappingAsReturnVariable'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot PublicFunctionCannotUseMappingAsParameter='visibility = GlobalFunctionVisibility::public implies parameters -&gt; collect(type) -&gt; excludes(Mapping)' PublicFunctionCannotUseMappingAsReturnVariable='visibility = GlobalFunctionVisibility::public implies returnVariables -&gt; collect(type) -&gt; excludes(Mapping)' ExternalFunctionCannotUseMappingAsParameter='visibility = GlobalFunctionVisibility::external implies parameters -&gt; collect(type) -&gt; excludes(Mapping)' ExternalFunctionCannotUseMappingAsReturnVariable='visibility = GlobalFunctionVisibility::external implies returnVariables -&gt; collect(type) -&gt; excludes(Mapping)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='GlobalFunctionCannotUseMappingAsParameter GlobalFunctionCannotUseMappingAsReturnVariable'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot GlobalFunctionCannotUseMappingAsParameter='parameters -&gt; collect(type) -&gt; excludes(Mapping)' GlobalFunctionCannotUseMappingAsReturnVariable='returnVariables -&gt; collect(type) -&gt; excludes(Mapping)'"
  * @generated
  */
 public interface GlobalFunction extends Function {

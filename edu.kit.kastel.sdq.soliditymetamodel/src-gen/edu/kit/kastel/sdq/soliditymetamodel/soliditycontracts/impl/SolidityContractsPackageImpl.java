@@ -630,6 +630,16 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 	 * @generated
 	 */
 	@Override
+	public EAttribute getFunction_Content() {
+		return (EAttribute)functionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEnum() {
 		return enumEClass;
 	}
@@ -780,6 +790,16 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 	 * @generated
 	 */
 	@Override
+	public EAttribute getModifier_Content() {
+		return (EAttribute)modifierEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMappingKeyType() {
 		return mappingKeyTypeEClass;
 	}
@@ -862,6 +882,16 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 	@Override
 	public EReference getConstructor_Parameters() {
 		return (EReference)constructorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getConstructor_Content() {
+		return (EAttribute)constructorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1440,6 +1470,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		createEReference(functionEClass, FUNCTION__MODIFIERS);
 		createEAttribute(functionEClass, FUNCTION__VIRTUAL);
 		createEReference(functionEClass, FUNCTION__PARAMETERS);
+		createEAttribute(functionEClass, FUNCTION__CONTENT);
 
 		enumEClass = createEClass(ENUM);
 		createEReference(enumEClass, ENUM__MEMBERS);
@@ -1460,6 +1491,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		createEReference(modifierEClass, MODIFIER__PARAMETERS);
 		createEAttribute(modifierEClass, MODIFIER__VIRTUAL);
 		createEReference(modifierEClass, MODIFIER__OVERRIDE);
+		createEAttribute(modifierEClass, MODIFIER__CONTENT);
 
 		mappingKeyTypeEClass = createEClass(MAPPING_KEY_TYPE);
 
@@ -1473,6 +1505,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 
 		constructorEClass = createEClass(CONSTRUCTOR);
 		createEReference(constructorEClass, CONSTRUCTOR__PARAMETERS);
+		createEAttribute(constructorEClass, CONSTRUCTOR__CONTENT);
 
 		primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
 		createEAttribute(primitiveTypeEClass, PRIMITIVE_TYPE__TYPE);
@@ -1623,6 +1656,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		initEReference(getFunction_Modifiers(), this.getModifier(), null, "modifiers", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFunction_Virtual(), ecorePackage.getEBoolean(), "virtual", null, 1, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFunction_Parameters(), this.getFunctionParameter(), null, "parameters", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFunction_Content(), ecorePackage.getEString(), "content", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumEClass, edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnum_Members(), this.getEnumMember(), null, "members", null, 1, 256, edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1643,6 +1677,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		initEReference(getModifier_Parameters(), this.getModifierParameter(), null, "parameters", null, 0, -1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModifier_Virtual(), ecorePackage.getEBoolean(), "virtual", null, 1, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModifier_Override(), this.getContract(), null, "override", null, 0, -1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModifier_Content(), ecorePackage.getEString(), "content", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingKeyTypeEClass, MappingKeyType.class, "MappingKeyType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1656,6 +1691,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 
 		initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConstructor_Parameters(), this.getConstructorParameter(), null, "parameters", null, 0, -1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstructor_Content(), ecorePackage.getEString(), "content", null, 0, 1, Constructor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPrimitiveType_Type(), this.getPrimitiveTypeEnum(), "type", null, 1, 1, PrimitiveType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1919,7 +1955,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		  (repositoryEClass,
 		   source,
 		   new String[] {
-			   "constraints", "ContractNameMustBeUnique GlobalFunctionsMustBePublicOrExternal GlobalFunctionCanOnlyUseGlobalTypes LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes EventsCanOnlyUseLocalTypesOfContractOrGlobalTypes ModifiersCanOnlyUseLocalTypesOfContractOrGlobalTypes"
+			   "constraints", "ContractNameMustBeUnique GlobalFunctionCanOnlyUseGlobalTypes LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes EventsCanOnlyUseLocalTypesOfContractOrGlobalTypes ModifiersCanOnlyUseLocalTypesOfContractOrGlobalTypes"
 		   });
 		addAnnotation
 		  (constructorEClass,
@@ -1961,7 +1997,7 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		  (globalFunctionEClass,
 		   source,
 		   new String[] {
-			   "constraints", "PublicFunctionCannotUseMappingAsParameter PublicFunctionCannotUseMappingAsReturnVariable ExternalFunctionCannotUseMappingAsParameter ExternalFunctionCannotUseMappingAsReturnVariable"
+			   "constraints", "GlobalFunctionCannotUseMappingAsParameter GlobalFunctionCannotUseMappingAsReturnVariable"
 		   });
 	}
 
@@ -2021,7 +2057,6 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		   source,
 		   new String[] {
 			   "ContractNameMustBeUnique", "contracts -> isUnique(entityName)",
-			   "GlobalFunctionsMustBePublicOrExternal", "globalFunctions -> collect(visibility) -> excludesAll(Set{LocalFunctionVisibility::private, LocalFunctionVisibility::internal})",
 			   "GlobalFunctionCanOnlyUseGlobalTypes", "globalTypes -> includesAll(globalFunctions -> collect(returnVariables) -> collect(type) -> union(globalFunctions -> collect(parameters) -> collect(type)))",
 			   "LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes", "contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.localFunctions -> collect(parameters) -> collect(type) -> union(c.localFunctions -> collect(returnVariables) -> collect(type))))",
 			   "VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes", "contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.variables -> collect(type)))",
@@ -2083,10 +2118,8 @@ public class SolidityContractsPackageImpl extends EPackageImpl implements Solidi
 		  (globalFunctionEClass,
 		   source,
 		   new String[] {
-			   "PublicFunctionCannotUseMappingAsParameter", "visibility = GlobalFunctionVisibility::public implies parameters -> collect(type) -> excludes(Mapping)",
-			   "PublicFunctionCannotUseMappingAsReturnVariable", "visibility = GlobalFunctionVisibility::public implies returnVariables -> collect(type) -> excludes(Mapping)",
-			   "ExternalFunctionCannotUseMappingAsParameter", "visibility = GlobalFunctionVisibility::external implies parameters -> collect(type) -> excludes(Mapping)",
-			   "ExternalFunctionCannotUseMappingAsReturnVariable", "visibility = GlobalFunctionVisibility::external implies returnVariables -> collect(type) -> excludes(Mapping)"
+			   "GlobalFunctionCannotUseMappingAsParameter", "parameters -> collect(type) -> excludes(Mapping)",
+			   "GlobalFunctionCannotUseMappingAsReturnVariable", "returnVariables -> collect(type) -> excludes(Mapping)"
 		   });
 	}
 

@@ -20,6 +20,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#isVirtual <em>Virtual</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getFunction()
@@ -111,5 +112,27 @@ public interface Function extends Entity {
 	 * @generated
 	 */
 	EList<FunctionParameter> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Content</em>' attribute.
+	 * @see #setContent(String)
+	 * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getFunction_Content()
+	 * @model
+	 * @generated
+	 */
+	String getContent();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function#getContent <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content</em>' attribute.
+	 * @see #getContent()
+	 * @generated
+	 */
+	void setContent(String value);
 
 } // Function

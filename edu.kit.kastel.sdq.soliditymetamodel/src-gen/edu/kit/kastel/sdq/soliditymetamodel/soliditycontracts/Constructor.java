@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Constructor#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Constructor#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getConstructor()
@@ -35,5 +36,27 @@ public interface Constructor extends EObject {
 	 * @generated
 	 */
 	EList<ConstructorParameter> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Content</em>' attribute.
+	 * @see #setContent(String)
+	 * @see edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.SolidityContractsPackage#getConstructor_Content()
+	 * @model
+	 * @generated
+	 */
+	String getContent();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Constructor#getContent <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content</em>' attribute.
+	 * @see #getContent()
+	 * @generated
+	 */
+	void setContent(String value);
 
 } // Constructor

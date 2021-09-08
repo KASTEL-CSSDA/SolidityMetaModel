@@ -36,6 +36,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.NamedElementImpl;
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.ModifierImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.ModifierImpl#isVirtual <em>Virtual</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.ModifierImpl#getOverride <em>Override</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.ModifierImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +81,26 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 	 * @ordered
 	 */
 	protected EList<Contract> override;
+
+	/**
+	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected String content = CONTENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +176,29 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 	 * @generated
 	 */
 	@Override
+	public String getContent() {
+		return content;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContent(String newContent) {
+		String oldContent = content;
+		content = newContent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolidityContractsPackage.MODIFIER__CONTENT, oldContent, content));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SolidityContractsPackage.MODIFIER__PARAMETERS:
@@ -177,6 +221,8 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 				return isVirtual();
 			case SolidityContractsPackage.MODIFIER__OVERRIDE:
 				return getOverride();
+			case SolidityContractsPackage.MODIFIER__CONTENT:
+				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +247,9 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 				getOverride().clear();
 				getOverride().addAll((Collection<? extends Contract>)newValue);
 				return;
+			case SolidityContractsPackage.MODIFIER__CONTENT:
+				setContent((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -222,6 +271,9 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 			case SolidityContractsPackage.MODIFIER__OVERRIDE:
 				getOverride().clear();
 				return;
+			case SolidityContractsPackage.MODIFIER__CONTENT:
+				setContent(CONTENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -240,6 +292,8 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 				return virtual != VIRTUAL_EDEFAULT;
 			case SolidityContractsPackage.MODIFIER__OVERRIDE:
 				return override != null && !override.isEmpty();
+			case SolidityContractsPackage.MODIFIER__CONTENT:
+				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -256,6 +310,8 @@ public class ModifierImpl extends NamedElementImpl implements Modifier {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (virtual: ");
 		result.append(virtual);
+		result.append(", content: ");
+		result.append(content);
 		result.append(')');
 		return result.toString();
 	}

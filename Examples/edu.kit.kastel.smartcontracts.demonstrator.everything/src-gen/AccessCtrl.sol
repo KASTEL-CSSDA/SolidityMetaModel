@@ -1,19 +1,16 @@
 pragma solidity ^0.8.5;
 
-
 contract AccessCtrl {
-	enum Roles {TESTROLE, ADMIN}
-	
-	
-	
-	mapping(address => bool) testroles;
-	mapping(address => bool) admins;
-	
-	constructor(address admin){
+	enum Roles { TESTROLE, ADMIN }
+
+	mapping(address => bool) public admins; //TODO: Auto-generated Field
+	mapping(address => bool) public testroles; //TODO: Auto-generated Field
+
+	constructor(address admin) {
 		admins[admin] = true;
 	}
-	
-	function checkAccess(address entity, Roles role) public returns (bool) {
+
+	function checkAccess(address entity, Roles role) public returns (bool ) {
 		if(role == Roles.TESTROLE){
 			return testroles[entity];
 		}
@@ -21,7 +18,7 @@ contract AccessCtrl {
 			return admins[entity];
 		}
 	}
-	
+
 	function addToRole(address entity, Roles role) public onlyAdmin {
 		if(role == Roles.TESTROLE){
 			testroles[entity] = true;
@@ -30,7 +27,7 @@ contract AccessCtrl {
 			admins[entity] = true;
 		}
 	}
-	
+
 	function removeFromRole(address entity, Roles role) public onlyAdmin {
 		if(role == Roles.TESTROLE){
 			testroles[entity] = false;
@@ -39,10 +36,9 @@ contract AccessCtrl {
 			admins[entity] = false;
 		}
 	}
-	
-	modifier onlyAdmin {
+
+	modifier onlyAdmin() {
 		require(admins[msg.sender] == true, "Access denied");
 		_;
 	}
-	
 }

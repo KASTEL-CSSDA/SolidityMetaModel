@@ -120,6 +120,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//soliditycontracts/FunctionParameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//soliditycontracts/MappingKeyType ../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -197,6 +198,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="override" upperBound="-1"
           eType="#//soliditycontracts/Contract"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MappingKeyType" abstract="true" interface="true"
         eSuperTypes="#//soliditycontracts/Type"/>
@@ -206,11 +208,10 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Repository">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="ContractNameMustBeUnique GlobalFunctionsMustBePublicOrExternal GlobalFunctionCanOnlyUseGlobalTypes LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes EventsCanOnlyUseLocalTypesOfContractOrGlobalTypes ModifiersCanOnlyUseLocalTypesOfContractOrGlobalTypes"/>
+        <details key="constraints" value="ContractNameMustBeUnique GlobalFunctionCanOnlyUseGlobalTypes LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes EventsCanOnlyUseLocalTypesOfContractOrGlobalTypes ModifiersCanOnlyUseLocalTypesOfContractOrGlobalTypes"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="ContractNameMustBeUnique" value="contracts -> isUnique(entityName)"/>
-        <details key="GlobalFunctionsMustBePublicOrExternal" value="globalFunctions -> collect(visibility) -> excludesAll(Set{LocalFunctionVisibility::private, LocalFunctionVisibility::internal})"/>
         <details key="GlobalFunctionCanOnlyUseGlobalTypes" value="globalTypes -> includesAll(globalFunctions -> collect(returnVariables) -> collect(type) -> union(globalFunctions -> collect(parameters) -> collect(type)))"/>
         <details key="LocalFunctionsCanOnlyUseLocalTypesOfContractOrGlobalTypes" value="contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.localFunctions -> collect(parameters) -> collect(type) -> union(c.localFunctions -> collect(returnVariables) -> collect(type))))"/>
         <details key="VariablesCanOnlyUseLocalTypesOfContractOrGlobalTypes" value="contracts -> forAll(c|c.localTypes -> union(globalTypes) -> includesAll(c.variables -> collect(type)))"/>
@@ -233,6 +234,7 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//soliditycontracts/ConstructorParameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//soliditycontracts/MappingKeyType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
@@ -475,13 +477,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GlobalFunction" eSuperTypes="#//soliditycontracts/Function">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="PublicFunctionCannotUseMappingAsParameter PublicFunctionCannotUseMappingAsReturnVariable ExternalFunctionCannotUseMappingAsParameter ExternalFunctionCannotUseMappingAsReturnVariable"/>
+        <details key="constraints" value="GlobalFunctionCannotUseMappingAsParameter GlobalFunctionCannotUseMappingAsReturnVariable"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="PublicFunctionCannotUseMappingAsParameter" value="visibility = GlobalFunctionVisibility::public implies parameters -> collect(type) -> excludes(Mapping)"/>
-        <details key="PublicFunctionCannotUseMappingAsReturnVariable" value="visibility = GlobalFunctionVisibility::public implies returnVariables -> collect(type) -> excludes(Mapping)"/>
-        <details key="ExternalFunctionCannotUseMappingAsParameter" value="visibility = GlobalFunctionVisibility::external implies parameters -> collect(type) -> excludes(Mapping)"/>
-        <details key="ExternalFunctionCannotUseMappingAsReturnVariable" value="visibility = GlobalFunctionVisibility::external implies returnVariables -> collect(type) -> excludes(Mapping)"/>
+        <details key="GlobalFunctionCannotUseMappingAsParameter" value="parameters -> collect(type) -> excludes(Mapping)"/>
+        <details key="GlobalFunctionCannotUseMappingAsReturnVariable" value="returnVariables -> collect(type) -> excludes(Mapping)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//soliditycontracts/GlobalFunctionVisibility"/>
     </eClassifiers>

@@ -56,6 +56,7 @@ public class ModifierItemProvider extends NamedElementItemProvider {
 
 			addVirtualPropertyDescriptor(object);
 			addOverridePropertyDescriptor(object);
+			addContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,6 +101,28 @@ public class ModifierItemProvider extends NamedElementItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Modifier_content_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Modifier_content_feature", "_UI_Modifier_type"),
+				 SolidityContractsPackage.Literals.MODIFIER__CONTENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -173,6 +196,7 @@ public class ModifierItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Modifier.class)) {
 			case SolidityContractsPackage.MODIFIER__VIRTUAL:
+			case SolidityContractsPackage.MODIFIER__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SolidityContractsPackage.MODIFIER__PARAMETERS:
